@@ -27,10 +27,11 @@ export default function App() {
 
   function handleAddFriend(friend) {
     setFriends((friends) => [...friends, friend]);
+    setShowAddFriend(false);
   }
 
   function handleShowAddFriend() {
-    setShowAddFriend((show) => !showAddFriend);
+    setShowAddFriend((show) => !show);
   }
 
   return (
@@ -91,9 +92,7 @@ function FormAddFriend({ onhandleAddFriend }) {
   const [image, setImage] = useState("https://i.pravatar.cc/48");
 
   function handleSubmit(e) {
-    if (e) {
-      e.preventDefault();
-    }
+    if (e) e.preventDefault();
 
     if (!image || !name) return;
 
@@ -104,10 +103,12 @@ function FormAddFriend({ onhandleAddFriend }) {
       balance: 0,
     };
     onhandleAddFriend(newFriend);
+    setName("");
+    setImage("https://i.pravatar.cc/48");
   }
 
   return (
-    <form className="form-add-friend" onSubmit={handleSubmit()}>
+    <form className="form-add-friend" onSubmit={handleSubmit}>
       <label>🧑‍🤝‍🧑 Add Friend</label>
       <input
         type="text"
