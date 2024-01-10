@@ -9,7 +9,7 @@ const initialFriends = [
   },
   {
     id: 933372,
-    name: "Sarah",
+    name: "Saraah",
     image: "https://i.pravatar.cc/48?u=933372",
     balance: 20,
   },
